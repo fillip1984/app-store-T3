@@ -9,7 +9,7 @@ import { applicationRouter } from "./routers/application";
  */
 export const appRouter = createTRPCRouter({
   example: exampleRouter,
-  application: applicationRouter,
+  applications: applicationRouter,
 });
 
 // export type definition of API

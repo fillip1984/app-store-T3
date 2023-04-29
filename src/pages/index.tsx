@@ -1,17 +1,27 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { type NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
   const [searchAdd, setSearchAdd] = useState("");
 
-  const apps = [1, 2, 3, 4, 5];
+  const ctx = api.useContext();
 
-  const handleAdd = () => {
-    console.log("adding an app:", searchAdd);
-    setSearchAdd("");
-  };
+  // const applicationQuery = api.applications.getAll();
+  const { data: applications } = api.applications.readAll.useQuery();
+  const { mutate: create } = api.applications.create.useMutation({
+    onSuccess: () => {
+      void ctx.applications.readAll.invalidate();
+    },
+  });
+  const { mutate: del } = api.applications.delete.useMutation({
+    onSuccess: () => {
+      void ctx.applications.readAll.invalidate();
+    },
+  });
 
   return (
     <>
@@ -32,7 +42,13 @@ const Home: NextPage = () => {
             value={searchAdd}
             onChange={(e) => setSearchAdd(e.target.value)}
           />
-          <button onClick={handleAdd} className="btn-primary btn">
+          <button
+            onClick={() => {
+              create({ name: searchAdd });
+              setSearchAdd("");
+            }}
+            className="btn-primary btn"
+          >
             Add
           </button>
         </div>
@@ -74,9 +90,9 @@ const Home: NextPage = () => {
           <button className="btn-outline btn-sm btn">T3</button>
         </div>
         <div className="app-collection mx-4 grid gap-4 pb-24 pt-4 md:grid-cols-2">
-          {apps.map((app) => (
+          {applications?.map((app) => (
             <div
-              key={app}
+              key={app.id}
               className="card w-full border border-white bg-base-100 shadow-xl"
             >
               <figure className="mt-2">
@@ -88,10 +104,15 @@ const Home: NextPage = () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title">{app.name}</h2>
+                <p>{app.description}</p>
                 <div className="card-actions justify-end">
-                  <button className="btn-primary btn">Buy Now</button>
+                  <button
+                    onClick={() => del({ id: app.id })}
+                    className="btn-primary btn"
+                  >
+                    Delete
+                  </button>
                 </div>
               </div>
             </div>
