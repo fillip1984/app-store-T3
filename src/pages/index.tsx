@@ -1,9 +1,12 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import { useState } from "react";
 
 const Home: NextPage = () => {
   const [searchAdd, setSearchAdd] = useState("");
+
+  const apps = [1, 2, 3, 4, 5];
 
   const handleAdd = () => {
     console.log("adding an app:", searchAdd);
@@ -18,10 +21,10 @@ const Home: NextPage = () => {
           name="description"
           content="App store shows all applications I've built and documented"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/platform-icon-9655-Windows.ico" />
       </Head>
-      <main className="p-4" data-theme="night">
-        <div className="toolbar sticky top-0 flex justify-center gap-2">
+      <main data-theme="night">
+        <div className="toolbar sticky top-0 z-[999] flex justify-center gap-2 bg-neutral p-4">
           <input
             type="text"
             className="input-bordered input-primary input w-full md:w-2/3 lg:w-1/2"
@@ -32,6 +35,35 @@ const Home: NextPage = () => {
           <button onClick={handleAdd} className="btn-primary btn">
             Add
           </button>
+        </div>
+        <div className="app-collection mx-4 grid gap-4 pb-24 pt-4 md:grid-cols-2">
+          {apps.map((app) => (
+            <div
+              key={app}
+              className="card w-full border border-white bg-base-100 shadow-xl"
+            >
+              <figure className="mt-2">
+                <Image
+                  src="/platform-icon-9655.png"
+                  alt="Generic Software Program Logo"
+                  width={200}
+                  height={200}
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">Shoes!</h2>
+                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <div className="card-actions justify-end">
+                  <button className="btn-primary btn">Buy Now</button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* TODO: make appear after some time and make fixed. Should be a combo of
+        fixed and visible */}
+        <div className="flex h-28 justify-end pr-8">
+          <button className="btn-warning btn-circle btn-lg">Top</button>
         </div>
       </main>
     </>
