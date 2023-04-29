@@ -36,6 +36,43 @@ const Home: NextPage = () => {
             Add
           </button>
         </div>
+        <div className="quick-filters-toolbar collapse flex flex-wrap items-center justify-center gap-2 p-2">
+          <input type="checkbox" className="peer" />
+          <div className="collapse-title text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+            Status filters
+          </div>
+          <div className="collapse-content text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+            <button className="btn-outline btn-sm btn">New</button>
+            <button className="btn-outline btn-sm btn">In progress</button>
+            <button className="btn-outline btn-sm btn">Abandoned</button>
+            <button className="btn-outline btn-sm btn">Knowledge</button>
+            <button className="btn-outline btn-sm btn">Finance</button>
+          </div>
+        </div>
+        <div className="collapse">
+          <input type="checkbox" className="peer" />
+          <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+            Status Filters
+          </div>
+          <div className="collapse-content flex justify-center gap-4 bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+            <button className="btn-outline btn-sm btn">In progress</button>
+            <button className="btn-outline btn-sm btn">Abandoned</button>
+            <button className="btn-outline btn-sm btn">Knowledge</button>
+            <button className="btn-outline btn-sm btn">Finance</button>
+          </div>
+        </div>
+        <div className="quick-filters-toolbar flex flex-wrap items-center justify-center gap-2 p-2">
+          <h3>Category</h3>
+          <button className="btn-outline btn-sm btn">Finance</button>
+          <button className="btn-outline btn-sm btn">Knowledge</button>
+          <button className="btn-outline btn-sm btn">Productivity</button>
+        </div>
+        <div className="quick-filters-toolbar flex flex-wrap items-center justify-center gap-2 p-2">
+          <h3>Tech</h3>
+          <button className="btn-outline btn-sm btn">React</button>
+          <button className="btn-outline btn-sm btn">NextJs</button>
+          <button className="btn-outline btn-sm btn">T3</button>
+        </div>
         <div className="app-collection mx-4 grid gap-4 pb-24 pt-4 md:grid-cols-2">
           {apps.map((app) => (
             <div
