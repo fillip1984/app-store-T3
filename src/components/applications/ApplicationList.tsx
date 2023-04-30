@@ -30,6 +30,8 @@ const ApplicationList = ({ applications }: ApplicationListProps) => {
   return (
     <>
       <div className="app-collection mx-4 grid gap-4 pb-24 pt-4 md:grid-cols-2">
+        {applications.length === 0 && <h2>There are no applications</h2>}
+
         {applications?.map((application) => (
           <ApplicationCard key={application.id} application={application} />
         ))}

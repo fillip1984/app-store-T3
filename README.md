@@ -1,28 +1,9 @@
-# Create T3 App
+# Application Store
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+I have a tendency to bound around on projects and can't remember where I used some technique or some library and have trouble remembering where I used it. This tool will hopefully allow for me to document which applications I'm working on and more importantly what tech I'm using in each application.
 
-## What's next? How do I make an app with this?
+## Speaking of which
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+I'm abandoning this version for now since T3 is fighting me every step of the way and I'm trying to move fast right now and not learn it. Will return when I have more time to lear the library.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
-
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
-
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+Breaking point was when I was trying to use React Hook Form and the SubmitHandler was complaining that I wasn't supplying the proper fields when I'm only trying to return a partial. Even when I set the SubmitHandler to Partial<Application> I was getting errors. T3 looks interesting but is pretty darn strict and I'm not finding the time to work through its rigor!
