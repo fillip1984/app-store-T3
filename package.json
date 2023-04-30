@@ -5,9 +5,11 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "postinstall": "prisma generate",
     "lint": "next lint",
     "start": "next start",
+    "prisma-generate": "prisma generate",
+    "prisma-migrate-dev": "prisma migrate dev",
+    "prisma-studio": "prisma studio",
     "update-packages": "npx npm-check-updates"
   },
   "dependencies": {

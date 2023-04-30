@@ -4,6 +4,7 @@ import Head from "next/head";
 import ApplicationList from "~/components/applications/ApplicationList";
 import ApplicationQuickFilters from "~/components/applications/ApplicationQuickFilters";
 import SearchAddApplicationToolbar from "~/components/applications/SearchAddApplicationToolbar";
+import safeJson from "~/server/SafeJson";
 import { prisma } from "~/server/db";
 
 interface ApplicationHomeProps {
@@ -34,7 +35,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const applications = await prisma.application.findMany();
 
   return {
-    props: { applications },
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+    props: { applications: safeJson(applications) },
   };
 };
 
