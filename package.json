@@ -7,7 +7,8 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "update-packages": "npx npm-check-updates"
   },
   "dependencies": {
     "@prisma/client": "^4.11.0",
@@ -19,6 +20,7 @@
     "@trpc/server": "^10.18.0",
     "daisyui": "^2.51.6",
     "next": "^13.2.4",
+    "next-superjson": "^0.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
